@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.345df562.css","mappings":"AAAA,SAEE,aAAc,CADd,SAEF,CACA,0BACE,SAEE,aAAc,CADd,SAEF,CACF","sources":["index.css"],"sourcesContent":[".m_input {\r\n  width: 40%;\r\n  max-width: 40%;\r\n}\r\n@media (max-width: 37.5em) {\r\n  .m_input {\r\n    width: 70%;\r\n    max-width: 70%;\r\n  }\r\n}\r\n"],"names":[],"sourceRoot":""}
