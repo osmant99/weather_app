@@ -7,7 +7,7 @@ function App() {
   const [city, setCity] = useState();
   const [weatherInfo, setWeatherInfo] = useState();
   const [fetchErr, setFetchErr] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(null);
 
   const api = "160a456a69a020265b8c2667d3e7aa3b";
   const weather_url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`;
@@ -32,6 +32,7 @@ function App() {
 
   const handleSearch = () => {
     setUserInput("");
+    setIsLoading(true);
     fetchWeather();
   };
 
@@ -42,7 +43,11 @@ function App() {
         setUserInput={setUserInput}
         handleSearch={handleSearch}
       />
-      <WeatherTable weatherInfo={weatherInfo} isLoading={isLoading} />
+      <WeatherTable
+        weatherInfo={weatherInfo}
+        isLoading={isLoading}
+        fetchErr={fetchErr}
+      />
     </>
   );
 }

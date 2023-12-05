@@ -1,15 +1,13 @@
 import React from "react";
 
-export default function WeatherTable({ weatherInfo, isLoading }) {
+export default function WeatherTable({ weatherInfo, isLoading, fetchErr }) {
   return (
     <>
       <div className="container my-5">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col" className="text-rotate">
-                Date
-              </th>
+              <th scope="col">Date</th>
 
               <th scope="col">City</th>
               <th scope="col">Temp</th>
@@ -20,7 +18,8 @@ export default function WeatherTable({ weatherInfo, isLoading }) {
           </thead>
           <tbody>
             {isLoading && <p>Loading data...</p>}
-            {!isLoading && weatherInfo && (
+            {fetchErr && <p style={{ color: "red" }}>{`Error: ${fetchErr}`}</p>}
+            {!isLoading && !fetchErr && weatherInfo && (
               <tr>
                 <td scope="row">{new Date().toLocaleString()}</td>
                 <td>{weatherInfo.name}</td>
